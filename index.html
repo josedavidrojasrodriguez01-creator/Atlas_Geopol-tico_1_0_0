@@ -2,6 +2,12 @@
 <html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Atlas Geopolítico 1.0.0</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0b1522">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0b1522;--sea:#0e1d2f;--pan:#142235;--line:#25374f;--tx:#e6edf5;--mu:#8da0b8;--gold:#d9a441;--ok:#5fa37a;--bad:#c4584a;--vas:#3d8f9f;--neu:#46586f;--ink:#1a1405;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -606,4 +612,5 @@ svg.addEventListener('click',e=>{if(e.target!==svg||dragged)return;const u=S.uni
   if(S.sel||S.us||S.ex){S.sel=null;S.pi=null;S.us=null;S.ex=null;render()}});
 window.addEventListener('resize',()=>{labels.w=0;labels()});initRes();buildSea();buildAdj();setV();if(!load())newGame();
 loadCfg();applyCfg();render();showMenu('main');
+if('serviceWorker' in navigator&&/^https?:/.test(location.protocol))window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script></body></html>
